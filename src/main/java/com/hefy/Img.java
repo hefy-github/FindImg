@@ -50,7 +50,7 @@ public class Img {
      * 初始化函数，用于读取BufferedImage图像信息，并进行颜色映射的初始化。
      * @param imageBuffer 输入的BufferedImage图像对象，用于提取图像尺寸和颜色信息。
      */
-    private void init(BufferedImage imageBuffer){
+    public void init(BufferedImage imageBuffer){
         width = imageBuffer.getWidth();
         height = imageBuffer.getHeight();
 

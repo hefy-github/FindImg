@@ -42,6 +42,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version> <!-- 确保使用支持 JDK 21 的插件版本 -->
         <configuration>
           <source>21</source>
           <target>21</target>
