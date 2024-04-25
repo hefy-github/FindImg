@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Img:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Img_jar</output-path>
+    <root id="archive" name="Img.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Img" />
+      <element id="extracted-dir" path="E:/work/maven/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
