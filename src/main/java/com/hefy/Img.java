@@ -28,29 +28,12 @@ public class Img {
         this.path = path;
     }
 
-    /**
-     * 初始化函数，用于加载指定文件名的图像文件。
-     * 如果文件名中不包含扩展名，则默认添加 .png 作为扩展名。
-     * 如果文件已存在，则尝试使用该文件初始化图像。
-     *
-     * @param fileName 要加载的图像文件的名称，可以不包含扩展名。
-     */
-    public void init(String fileName) {
-        // 如果文件名中没有扩展名，则默认添加.png扩展名
-        if(!fileName.contains(".")) { fileName += ".png"; }
-
-        File file = new File(path + fileName);
-        // 如果文件不已存在, 报错.
-        if(!file.exists()){ throw new RuntimeException("文件不存在"); }
-
-        try { init(ImageIO.read(new File(path + fileName))); } catch (IOException e) { throw new RuntimeException(e); }
-    }
 
     /**
      * 初始化函数，用于读取BufferedImage图像信息，并进行颜色映射的初始化。
      * @param imageBuffer 输入的BufferedImage图像对象，用于提取图像尺寸和颜色信息。
      */
-    public void init(BufferedImage imageBuffer){
+    public Img init(BufferedImage imageBuffer){
         width = imageBuffer.getWidth();
         height = imageBuffer.getHeight();
 
@@ -80,7 +63,49 @@ public class Img {
                 if(posList.size() > maxCount){ maxCount = posList.size(); bgc = tempColor; }
             }
         }
+
+        return this;
     }
+
+    /**
+     * 初始化函数，用于加载指定文件名的图像文件。
+     * 如果文件名中不包含扩展名，则默认添加 .png 作为扩展名。
+     * 如果文件已存在，则尝试使用该文件初始化图像。
+     *
+     * @param fileName 要加载的图像文件的名称，可以不包含扩展名。
+     */
+    public Img init(String fileName) {
+        // 如果文件名中没有扩展名，则默认添加.png扩展名
+        if(!fileName.contains(".")) { fileName += ".png"; }
+
+        File file = new File(path + fileName);
+        // 如果文件不已存在, 报错.
+        if(!file.exists()){ throw new RuntimeException("文件不存在"); }
+
+        try { init(ImageIO.read(new File(path + fileName))); } catch (IOException e) { throw new RuntimeException(e); }
+
+        return this;
+    }
+
+    /**
+     * 初始化一个图像对象，该图像对象捕获指定矩形区域的屏幕内容。
+     *
+     * @param rect 指定捕获屏幕内容的矩形区域。矩形的左上角为捕获的起始点，矩形的大小为捕获的区域大小。
+     * @return Img 返回一个初始化后的图像对象，该对象包含指定屏幕区域的内容。
+     * @throws RuntimeException 如果创建屏幕捕获时发生AWTException异常，则抛出运行时异常。
+     */
+    public Img init(Rectangle rect){
+        try {
+            // 使用Robot类创建一个屏幕捕获对象，并初始化Img对象
+            init(new Robot().createScreenCapture(rect));
+        } catch (AWTException e) {
+            // 如果捕获到AWTException异常，将其封装并抛出为运行时异常
+            throw new RuntimeException(e);
+        }
+
+        return this;
+    }
+
 
     /**
      * 根据指定的行列索引获取图像中对应像素的值。

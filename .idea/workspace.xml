@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="28589b81-5515-43df-8663-7b633394e73b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hefy/Img.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hefy/Img.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +90,8 @@
       <workItem from="1714046496995" duration="488000" />
       <workItem from="1714047011152" duration="671000" />
       <workItem from="1714048894084" duration="104000" />
-      <workItem from="1714049053943" duration="175000" />
+      <workItem from="1714049053943" duration="945000" />
+      <workItem from="1714281025723" duration="224000" />
     </task>
     <servers />
   </component>
